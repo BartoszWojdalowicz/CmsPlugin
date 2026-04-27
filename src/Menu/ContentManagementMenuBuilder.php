@@ -13,17 +13,20 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Menu;
 
-use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
+use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
+use Sylius\AdminUi\Knp\Menu\MenuBuilderInterface;
 
-final class ContentManagementMenuBuilder
+final readonly class ContentManagementMenuBuilder implements MenuBuilderInterface
 {
-    public function __construct(private MenuReorderInterface $menuReorder)
-    {
+    public function __construct(
+        private MenuBuilderInterface $menuBuilder,
+    ) {
     }
 
-    public function buildMenu(MenuBuilderEvent $menuBuilderEvent): void
+    public function createMenu(array $options): ItemInterface
     {
-        $menu = $menuBuilderEvent->getMenu();
+        $menu = $this->menuBuilder->createMenu($options);
 
         $cmsRootMenuItem = $menu
             ->addChild('sylius_cms')
@@ -86,6 +89,6 @@ final class ContentManagementMenuBuilder
             ->setLabel('sylius_cms.ui.media')
         ;
 
-        $this->menuReorder->reorder($menu, 'sylius_cms', 'marketing');
+        return $menu;
     }
 }
