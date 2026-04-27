@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Form\Type;
 
-use Sylius\Bundle\AdminBundle\Form\Type\AddButtonType;
 use Sylius\CmsPlugin\Form\Type\ContentElements\ContentElementConfigurationType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

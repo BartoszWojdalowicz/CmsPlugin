@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Form\Type;
 
-use Sylius\Bundle\AdminBundle\Form\Type\ProductAutocompleteType;
-use Sylius\Bundle\AdminBundle\Form\Type\TaxonAutocompleteType;
-use Sylius\Bundle\ChannelBundle\Form\Type\ChannelChoiceType;
 use Sylius\Bundle\LocaleBundle\Form\Type\LocaleChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
@@ -58,30 +55,6 @@ final class BlockType extends AbstractResourceType
                 'by_reference' => false,
                 'multiple' => true,
                 'required' => false,
-            ])
-            ->add('channels', ChannelChoiceType::class, [
-                'label' => 'sylius_cms.ui.channels',
-                'required' => false,
-                'multiple' => true,
-                'expanded' => true,
-            ])
-            ->add('products', ProductAutocompleteType::class, [
-                'label' => 'sylius_cms.ui.display_for_products.label',
-                'multiple' => true,
-                'help' => 'sylius_cms.ui.display_for_products.help',
-                'required' => false,
-            ])
-            ->add('productsInTaxons', TaxonAutocompleteType::class, [
-                'label' => 'sylius_cms.ui.display_for_products_in_taxons.label',
-                'multiple' => true,
-                'help' => 'sylius_cms.ui.display_for_products_in_taxons.help',
-                'required' => false,
-            ])
-            ->add('taxons', TaxonAutocompleteType::class, [
-                'label' => 'sylius_cms.ui.display_for_taxons.label',
-                'multiple' => true,
-                'required' => false,
-                'help' => 'sylius_cms.ui.display_for_taxons.help',
             ])
             ->add('localeCode', LocaleChoiceType::class, [
                 'label' => false,
