@@ -25,8 +25,8 @@ trait ResourceDataProcessingTrait
 {
     private function getResourceInterface(Request $request): object
     {
-        return null !== $request->get('id') && null !== $this->repository->find($request->get('id')) ?
-            $this->repository->find($request->get('id')) :
+        return null !== $request->attributes->get('id') && null !== $this->repository->find($request->attributes->get('id')) ?
+            $this->repository->find($request->attributes->get('id')) :
             $this->factory->createNew();
     }
 
