@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Sylius\CmsPlugin\Controller\Action\Admin;
 
 use Sylius\CmsPlugin\Entity\MediaInterface;
+use Sylius\CmsPlugin\Formatter\StringInflector;
 use Sylius\CmsPlugin\Repository\MediaRepositoryInterface;
 use Sylius\CmsPlugin\Resolver\MediaProviderResolverInterface;
-use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;

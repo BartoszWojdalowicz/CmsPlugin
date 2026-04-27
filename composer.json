@@ -15,7 +15,8 @@
         "php": "^8.5",
         "sylius/bootstrap-admin-ui": "^0.12.1",
         "sylius/ui-translations": "^0.12.1",
-        "symfony/asset-mapper": "~8.0"
+        "symfony/asset-mapper": "~8.0",
+        "behat/transliterator": "*"
     },
     "require-dev": {
         "behat/behat": "^3.14",
@@ -74,5 +75,10 @@
             "require": "^8.0"
         },
         "public-dir": "vendor/sylius/test-application/public"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "importmap:install": "symfony-cmd"
+        }
     }
 }
