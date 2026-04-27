@@ -16,7 +16,8 @@
         "sylius/bootstrap-admin-ui": "^0.12.1",
         "sylius/ui-translations": "^0.12.1",
         "symfony/asset-mapper": "~8.0",
-        "behat/transliterator": "*"
+        "behat/transliterator": "*",
+        "liip/imagine-bundle": "*"
     },
     "require-dev": {
         "behat/behat": "^3.14",
