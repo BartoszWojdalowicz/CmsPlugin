@@ -23,19 +23,14 @@ final class MediaResourceResolver implements MediaResourceResolverInterface
 {
     public function __construct(
         private MediaRepositoryInterface $mediaRepository,
-        private ChannelContextInterface $channelContext,
         private LoggerInterface $logger,
     ) {
     }
 
     public function findOrLog(string $code): ?MediaInterface
     {
-        $channelCode = $this->channelContext->getChannel()->getCode();
-        Assert::notNull($channelCode);
-
         $media = $this->mediaRepository->findOneEnabledByCode(
             $code,
-            $channelCode,
         );
 
         if (false === $media instanceof MediaInterface) {
