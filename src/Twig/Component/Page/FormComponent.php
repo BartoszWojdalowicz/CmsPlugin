@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Twig\Component\Page;
 
-use Sylius\Bundle\UiBundle\Twig\Component\LiveCollectionTrait;
-use Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponentTrait;
-use Sylius\Bundle\UiBundle\Twig\Component\TemplatePropTrait;
 use Sylius\CmsPlugin\Entity\PageInterface;
 use Sylius\CmsPlugin\Entity\TemplateInterface;
 use Sylius\CmsPlugin\Repository\TemplateRepositoryInterface;
 use Sylius\CmsPlugin\Twig\Component\Trait\ContentElementsCollectionFormComponentTrait;
+use Sylius\CmsPlugin\Twig\Component\Trait\LiveCollectionTrait;
 use Sylius\CmsPlugin\Twig\Component\Trait\PreviewComponentTrait;
+use Sylius\CmsPlugin\Twig\Component\Trait\ResourceFormComponentTrait;
+use Sylius\CmsPlugin\Twig\Component\Trait\TemplatePropTrait;
 use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
