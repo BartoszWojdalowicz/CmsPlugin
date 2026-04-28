@@ -15,13 +15,13 @@ namespace Sylius\CmsPlugin\Uploader;
 
 use League\Flysystem\FilesystemException;
 use Sylius\CmsPlugin\Entity\MediaInterface;
-use Sylius\Component\Core\Filesystem\Adapter\FilesystemAdapterInterface;
-use Sylius\Component\Core\Filesystem\Exception\FileNotFoundException;
+use Sylius\CmsPlugin\Filesystem\Adapter\FlysystemFilesystemAdapterInterface;
+use Sylius\CmsPlugin\Filesystem\Exception\FileNotFoundException;
 use Webmozart\Assert\Assert;
 
 final class MediaUploader implements MediaUploaderInterface
 {
-    public function __construct(private FilesystemAdapterInterface $filesystem)
+    public function __construct(private FlysystemFilesystemAdapterInterface $filesystem)
     {
     }
 
