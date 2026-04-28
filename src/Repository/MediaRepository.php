@@ -27,17 +27,11 @@ class MediaRepository extends EntityRepository implements MediaRepositoryInterfa
         ;
     }
 
-    public function findOneEnabledByCode(
-        string $code,
-        string $channelCode,
-    ): ?MediaInterface {
+    public function findOneEnabledByCode(string $code): ?MediaInterface {
         return $this->createQueryBuilder('o')
-            ->innerJoin('o.channels', 'channels')
             ->andWhere('o.code = :code')
             ->andWhere('o.enabled = true')
-            ->andWhere('channels.code = :channelCode')
             ->setParameter('code', $code)
-            ->setParameter('channelCode', $channelCode)
             ->getQuery()
             ->getOneOrNullResult()
         ;

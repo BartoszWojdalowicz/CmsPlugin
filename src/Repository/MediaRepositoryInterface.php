@@ -23,10 +23,7 @@ interface MediaRepositoryInterface extends RepositoryInterface
 {
     public function createListQueryBuilder(string $locale): QueryBuilder;
 
-    public function findOneEnabledByCode(
-        string $code,
-        string $channelCode,
-    ): ?MediaInterface;
+    public function findOneEnabledByCode(string $code): ?MediaInterface;
 
     /**
      * @param array<string> $mediaType
