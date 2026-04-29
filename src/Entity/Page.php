@@ -27,7 +27,6 @@ class Page implements PageInterface
     use ToggleableTrait;
     use CollectibleTrait;
     use TimestampableTrait;
-    use ChannelsAwareTrait;
     use StaticTemplateAwareTrait;
     use ContentElementsAwareTrait;
     use TranslatableTrait {
@@ -45,7 +44,6 @@ class Page implements PageInterface
     public function __construct()
     {
         $this->initializeCollectionsCollection();
-        $this->initializeChannelsCollection();
         $this->initializeTranslationsCollection();
         $this->initializeContentElementsCollection();
 

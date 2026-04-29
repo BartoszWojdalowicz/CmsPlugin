@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Entity;
 
-use Sylius\Component\Channel\Model\ChannelsAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
@@ -28,7 +27,6 @@ interface PageInterface extends
     ToggleableInterface,
     CollectibleInterface,
     TimestampableInterface,
-    ChannelsAwareInterface,
     StaticTemplateAwareInterface,
     SlugAwareInterface,
     ContentElementsAwareInterface,

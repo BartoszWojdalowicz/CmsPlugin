@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Entity;
 
-use Sylius\CmsPlugin\Entity\Trait\ChannelsAwareTrait;
 use Sylius\CmsPlugin\Entity\Trait\CollectibleTrait;
 use Sylius\CmsPlugin\Entity\Trait\PagesCollectionTrait;
 use Sylius\CmsPlugin\MediaProvider\FilenameHelper;
@@ -26,7 +25,6 @@ class Media implements MediaInterface
 {
     use ToggleableTrait;
     use CollectibleTrait;
-    use ChannelsAwareTrait;
     use PagesCollectionTrait;
     use TranslatableTrait {
         __construct as protected initializeTranslationsCollection;
@@ -58,7 +56,6 @@ class Media implements MediaInterface
     {
         $this->initializeTranslationsCollection();
         $this->initializeCollectionsCollection();
-        $this->initializeChannelsCollection();
     }
 
     public function getId(): ?int
