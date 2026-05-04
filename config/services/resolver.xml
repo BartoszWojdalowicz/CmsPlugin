@@ -31,7 +31,6 @@
         <service id="sylius_cms.resolver.block_resource" class="Sylius\CmsPlugin\Resolver\BlockResourceResolver">
             <argument type="service" id="sylius_cms.repository.block" />
             <argument type="service" id="logger" />
-            <argument type="service" id="sylius.context.channel" />
         </service>
 
         <service id="sylius_cms.resolver.collection_resource" class="Sylius\CmsPlugin\Resolver\CollectionResourceResolver">
@@ -46,7 +45,6 @@
 
         <service id="sylius_cms.resolver.media_resource" class="Sylius\CmsPlugin\Resolver\MediaResourceResolver">
             <argument type="service" id="sylius_cms.repository.media" />
-            <argument type="service" id="sylius.context.channel" />
             <argument type="service" id="logger" />
         </service>
 

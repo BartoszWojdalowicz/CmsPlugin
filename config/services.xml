@@ -33,22 +33,21 @@
             <argument type="service" id="sylius_cms.media.filesystem.file" />
         </service>
 
-        <service id="sylius_cms.media.filesystem.image" class="Sylius\Component\Core\Filesystem\Adapter\FlysystemFilesystemAdapter">
+        <service id="sylius_cms.media.filesystem.image" class="Sylius\CmsPlugin\Filesystem\Adapter\FlysystemFilesystemAdapter">
             <argument type="service" id="sylius_cms_media.image.storage" />
         </service>
 
-        <service id="sylius_cms.media.filesystem.video" class="Sylius\Component\Core\Filesystem\Adapter\FlysystemFilesystemAdapter">
+        <service id="sylius_cms.media.filesystem.video" class="Sylius\CmsPlugin\Filesystem\Adapter\FlysystemFilesystemAdapter">
             <argument type="service" id="sylius_cms_media.video.storage" />
         </service>
 
-        <service id="sylius_cms.media.filesystem.file" class="Sylius\Component\Core\Filesystem\Adapter\FlysystemFilesystemAdapter">
+        <service id="sylius_cms.media.filesystem.file" class="Sylius\CmsPlugin\Filesystem\Adapter\FlysystemFilesystemAdapter">
             <argument type="service" id="sylius_cms_media.file.storage" />
         </service>
 
         <service id="sylius_cms.sorter.collections" class="Sylius\CmsPlugin\Sorter\CollectionsSorter" />
 
         <service id="sylius_cms.context.locale.admin_preview" class="Sylius\CmsPlugin\Context\PreviewLocaleContext">
-            <argument type="service" id="sylius.section_resolver.uri_based" />
             <argument type="service" id="request_stack" />
             <argument type="service" id="sylius.provider.locale" />
 
@@ -59,13 +58,8 @@
             <argument type="service" id="parameter_bag" />
         </service>
 
-        <service id="sylius_cms.menu.reorder" class="Sylius\CmsPlugin\Menu\MenuReorder" />
-
-        <service id="Sylius\CmsPlugin\Doctrine\ORM\Extension\EnabledAndAvailableExtension">
-            <argument type="service" id="Sylius\Bundle\ApiBundle\Context\UserContextInterface" />
-            <argument type="service" id="sylius.context.channel" />
-            <tag name="api_platform.doctrine.orm.query_extension.collection" />
-            <tag name="api_platform.doctrine.orm.query_extension.item" />
+        <service id="sylius_admin.twig.extension.string_loader" class="Twig\Extension\StringLoaderExtension">
+            <tag name="twig.extension" />
         </service>
     </services>
 </container>

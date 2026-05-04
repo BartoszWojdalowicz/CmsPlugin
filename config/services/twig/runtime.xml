@@ -52,7 +52,7 @@
         <service id="sylius_cms.twig.runtime.resolve_media_video_path" class="Sylius\CmsPlugin\Twig\Runtime\ResolveMediaVideoPathRuntime">
             <argument type="service" id="sylius_cms_media.video.storage" />
             <argument>%sylius_cms.videos_dir%</argument>
-            <argument>%sylius_core.public_dir%</argument>
+            <argument>%kernel.project_dir%/public</argument>
         </service>
         <service id="Sylius\CmsPlugin\Twig\Runtime\ResolveMediaVideoPathRuntimeInterface" alias="sylius_cms.twig.runtime.resolve_media_video_path" />
     </services>
