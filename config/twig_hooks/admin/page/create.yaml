@@ -43,9 +43,6 @@ sylius_twig_hooks:
             publish_at:
                 template: '@SyliusCmsPlugin/admin/page/form/sections/general/publish_at.html.twig'
                 priority: 300
-            channels:
-                template: '@SyliusCmsPlugin/admin/page/form/sections/general/channels.html.twig'
-                priority: 200
             enabled:
                 template: '@SyliusCmsPlugin/admin/page/form/sections/general/enabled.html.twig'
                 priority: 100
