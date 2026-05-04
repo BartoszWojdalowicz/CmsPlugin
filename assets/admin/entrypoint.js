@@ -1,1 +1,1 @@
-import './js/trix/trix-editor';
+import './js/trix/trix-editor.js';
