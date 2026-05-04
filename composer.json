@@ -12,13 +12,13 @@
         "doctrine/doctrine-bundle": "^3.2",
         "doctrine/orm": "^3.6",
         "pagerfanta/doctrine-orm-adapter": "^4.8",
-        "php": "^8.4",
+        "php": "^8.5",
         "sylius/bootstrap-admin-ui": "^0.12.1",
         "sylius/ui-translations": "^0.12.1",
-        "symfony/asset-mapper": "~8.0",
+        "symfony/asset-mapper": "^7.4",
         "behat/transliterator": "*",
         "liip/imagine-bundle": "*",
-        "league/flysystem": "*"
+        "league/flysystem-bundle": "*"
     },
     "require-dev": {
         "behat/behat": "^3.14",
