@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Entity;
 
-use Sylius\CmsPlugin\Entity\Trait\ChannelsAwareTrait;
 use Sylius\CmsPlugin\Entity\Trait\CollectibleTrait;
 use Sylius\CmsPlugin\Entity\Trait\ContentElementsAwareTrait;
 use Sylius\CmsPlugin\Entity\Trait\StaticTemplateAwareTrait;

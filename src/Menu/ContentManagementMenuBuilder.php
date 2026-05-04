@@ -27,7 +27,7 @@ final readonly class ContentManagementMenuBuilder implements MenuBuilderInterfac
     {
         $menu = $this->menuBuilder->createMenu($options);
 
-        $configurationMenu  = $menu
+        $configurationMenu = $menu
             ->addChild('sylius_configuration')
             ->setLabel('sylius_cms.ui.configuration')
             ->setLabelAttribute('icon', 'tabler:home-edit')

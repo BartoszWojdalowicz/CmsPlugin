@@ -16,10 +16,10 @@ namespace Sylius\CmsPlugin;
 use Sylius\CmsPlugin\DependencyInjection\Compiler\CompositeLocaleContextPass;
 use Sylius\CmsPlugin\DependencyInjection\Compiler\ContentElementPass;
 use Sylius\CmsPlugin\DependencyInjection\Compiler\MediaProviderPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class SyliusCmsPlugin extends Bundle
 {
@@ -55,7 +55,6 @@ final class SyliusCmsPlugin extends Bundle
 
         return $this->containerExtension ?: null;
     }
-
 
     public function build(ContainerBuilder $container): void
     {

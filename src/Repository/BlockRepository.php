@@ -39,7 +39,8 @@ class BlockRepository extends EntityRepository implements BlockRepositoryInterfa
         ;
     }
 
-    public function findByCollectionCode(string $collectionCode): array {
+    public function findByCollectionCode(string $collectionCode): array
+    {
         return $this->createQueryBuilder('o')
             ->innerJoin('o.collections', 'collection')
             ->andWhere('collection.code = :collectionCode')

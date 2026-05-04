@@ -68,7 +68,7 @@ class FormComponent
     #[LiveAction]
     public function generateSlug(#[LiveArg] string $localeCode): void
     {
-        $slug = str_replace('\'', '-',   $this->formValues['name']);
+        $slug = str_replace('\'', '-', $this->formValues['name']);
         $slug = Transliterator::transliterate($slug);
 
         $this->formValues['translations'][$localeCode]['slug'] = $slug;

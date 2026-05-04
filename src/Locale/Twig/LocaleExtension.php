@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Sylius CMS Plugin package.
  *
  * (c) Sylius Sp. z o.o.
  *
@@ -12,7 +12,6 @@
 declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Locale\Twig;
-
 
 use Sylius\CmsPlugin\Locale\Context\LocaleContextInterface;
 use Sylius\CmsPlugin\Locale\Context\LocaleNotFoundException;

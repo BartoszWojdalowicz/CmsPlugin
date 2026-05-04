@@ -16,8 +16,6 @@ namespace Sylius\CmsPlugin\DependencyInjection\Compiler;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Compiler\PrioritizedCompositeServicePass;
 use Sylius\CmsPlugin\Locale\Context\CompositeLocaleContext;
 use Sylius\CmsPlugin\Locale\Context\ImmutableLocaleContext;
-use Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider;
-use Sylius\Resource\Translation\Provider\TranslationLocaleProviderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
