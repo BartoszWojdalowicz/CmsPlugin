@@ -25,6 +25,12 @@
         </service>
         <service id="Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface" alias="sylius.provider.locale" />
 
+        <service id="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" class="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider">
+            <argument type="service" id="Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface" />
+        </service>
+        <service id="Sylius\Resource\Translation\Provider\TranslationLocaleProviderInterface" alias="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" />
+        <service id="sylius.translation_locale_provider" alias="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" public="true" />
+
         <service id="sylius.context.locale" class="Sylius\CmsPlugin\Locale\Context\ImmutableLocaleContext" public="true">
             <argument>%sylius_locale.locale%</argument>
         </service>

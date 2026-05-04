@@ -138,7 +138,7 @@
         </service>
 
         <service id="sylius_cms.form.type.admin.content_configuration_translations" class="Sylius\CmsPlugin\Form\Type\Translation\ContentConfigurationTranslationsType">
-            <argument type="service" id="sylius.translation_locale_provider.immutable" />
+            <argument type="service" id="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" />
 
             <tag name="form.type" />
         </service>
