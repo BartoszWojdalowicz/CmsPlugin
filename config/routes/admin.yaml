@@ -12,3 +12,6 @@ sylius_cms_admin_media:
 
 sylius_cms_admin_template:
     resource: "@SyliusCmsPlugin/config/routes/admin/template.yaml"
+
+sylius_cms_admin_locale:
+    resource: "@SyliusCmsPlugin/config/routes/admin/locale.yaml"
