@@ -31,12 +31,6 @@ sylius_grid:
                     path: .
                     options:
                         template: "@SyliusCmsPlugin/admin/grid/field/collections.html.twig"
-                channels:
-                    type: twig
-                    label: sylius_cms.ui.channels
-                    path: .
-                    options:
-                        template: "@SyliusCmsPlugin/admin/grid/field/channels.html.twig"
             filters:
                 search:
                     type: string
