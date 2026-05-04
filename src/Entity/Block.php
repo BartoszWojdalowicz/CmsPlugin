@@ -29,9 +29,6 @@ class Block implements BlockInterface
     {
         $this->initializeCollectionsCollection();
         $this->initializeContentElementsCollection();
-        $this->initializeProductsCollection();
-        $this->initializeTaxonCollection();
-        $this->initializeProductsInTaxonsCollection();
     }
 
     protected ?int $id = null;

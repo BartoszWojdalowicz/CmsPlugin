@@ -15,8 +15,6 @@ namespace Sylius\CmsPlugin\Twig\Runtime;
 
 use Sylius\CmsPlugin\Renderer\ContentElementRendererStrategyInterface;
 use Sylius\CmsPlugin\Resolver\BlockResourceResolverInterface;
-use Sylius\Component\Core\Model\ProductInterface;
-use Sylius\Component\Core\Model\TaxonInterface;
 use Twig\Environment;
 
 final class RenderBlockRuntime implements RenderBlockRuntimeInterface
@@ -30,22 +28,11 @@ final class RenderBlockRuntime implements RenderBlockRuntimeInterface
     ) {
     }
 
-    /** @param array<mixed>|ProductInterface|TaxonInterface|null $context */
-    public function renderBlock(string $code, ?string $template = null, array|ProductInterface|TaxonInterface|null $context = null): string
+    /** @param array<mixed>|null $context */
+    public function renderBlock(string $code, ?string $template = null, array|null $context = null): string
     {
         $block = $this->blockResourceResolver->findOrLog($code);
         if (null === $block) {
-            return '';
-        }
-
-        if ($context instanceof TaxonInterface && false === $block->canBeDisplayedForTaxon($context)) {
-            return '';
-        }
-
-        if ($context instanceof ProductInterface &&
-            false === $block->canBeDisplayedForProduct($context) &&
-            false === $block->canBeDisplayedForProductInTaxon($context)
-        ) {
             return '';
         }
 

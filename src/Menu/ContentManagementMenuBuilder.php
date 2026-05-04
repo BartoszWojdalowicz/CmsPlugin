@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Menu;
 
-use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Sylius\AdminUi\Knp\Menu\MenuBuilderInterface;
 
@@ -27,6 +26,19 @@ final readonly class ContentManagementMenuBuilder implements MenuBuilderInterfac
     public function createMenu(array $options): ItemInterface
     {
         $menu = $this->menuBuilder->createMenu($options);
+
+        $configurationMenu  = $menu
+            ->addChild('sylius_configuration')
+            ->setLabel('sylius_cms.ui.configuration')
+            ->setLabelAttribute('icon', 'tabler:home-edit')
+        ;
+        $configurationMenu
+            ->addChild('locales', ['route' => 'sylius_admin_locale_index', 'extras' => ['routes' => [
+                ['route' => 'sylius_admin_locale_create'],
+                ['route' => 'sylius_admin_locale_update'],
+            ]]])
+            ->setLabel('sylius.menu.locales')
+            ->setLabelAttribute('icon', 'tabler:bubble-text');
 
         $cmsRootMenuItem = $menu
             ->addChild('sylius_cms')

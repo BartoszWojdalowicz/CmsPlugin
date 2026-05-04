@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin;
 
+use Sylius\CmsPlugin\DependencyInjection\Compiler\CompositeLocaleContextPass;
 use Sylius\CmsPlugin\DependencyInjection\Compiler\ContentElementPass;
 use Sylius\CmsPlugin\DependencyInjection\Compiler\MediaProviderPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -62,6 +63,7 @@ final class SyliusCmsPlugin extends Bundle
 
         $container->addCompilerPass(new MediaProviderPass());
         $container->addCompilerPass(new ContentElementPass());
+        $container->addCompilerPass(new CompositeLocaleContextPass());
     }
 
     public function getPath(): string

@@ -15,6 +15,7 @@ namespace Sylius\CmsPlugin\Twig\Component\Block;
 
 use Sylius\CmsPlugin\Entity\BlockInterface;
 use Sylius\CmsPlugin\Entity\TemplateInterface;
+use Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface;
 use Sylius\CmsPlugin\Renderer\ContentElementRendererStrategyInterface;
 use Sylius\CmsPlugin\Repository\TemplateRepositoryInterface;
 use Sylius\CmsPlugin\Twig\Component\Trait\ContentElementsCollectionFormComponentTrait;
@@ -22,7 +23,6 @@ use Sylius\CmsPlugin\Twig\Component\Trait\LiveCollectionTrait;
 use Sylius\CmsPlugin\Twig\Component\Trait\PreviewComponentTrait;
 use Sylius\CmsPlugin\Twig\Component\Trait\ResourceFormComponentTrait;
 use Sylius\CmsPlugin\Twig\Component\Trait\TemplatePropTrait;
-use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormFactoryInterface;

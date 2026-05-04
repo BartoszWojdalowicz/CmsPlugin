@@ -13,18 +13,16 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Context;
 
-use Sylius\Bundle\AdminBundle\SectionResolver\AdminSection;
-use Sylius\Bundle\CoreBundle\SectionResolver\SectionProviderInterface;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
-use Sylius\Component\Locale\Context\LocaleNotFoundException;
-use Sylius\Component\Locale\Provider\LocaleProviderInterface;
+use Sylius\CmsPlugin\Locale\Context\LocaleContextInterface;
+use Sylius\CmsPlugin\Locale\Context\LocaleNotFoundException;
+use Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final readonly class PreviewLocaleContext implements LocaleContextInterface
 {
     public function __construct(
-        private SectionProviderInterface $sectionProvider,
+//        private SectionProviderInterface $sectionProvider,
         private RequestStack $requestStack,
         private LocaleProviderInterface $localeProvider,
     ) {
@@ -32,10 +30,6 @@ final readonly class PreviewLocaleContext implements LocaleContextInterface
 
     public function getLocaleCode(): string
     {
-        if (!$this->sectionProvider->getSection() instanceof AdminSection) {
-            throw new LocaleNotFoundException();
-        }
-
         $request = $this->requestStack->getMainRequest();
         if (
             null === $request ||

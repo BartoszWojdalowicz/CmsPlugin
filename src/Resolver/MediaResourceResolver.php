@@ -16,8 +16,6 @@ namespace Sylius\CmsPlugin\Resolver;
 use Psr\Log\LoggerInterface;
 use Sylius\CmsPlugin\Entity\MediaInterface;
 use Sylius\CmsPlugin\Repository\MediaRepositoryInterface;
-use Sylius\Component\Channel\Context\ChannelContextInterface;
-use Webmozart\Assert\Assert;
 
 final class MediaResourceResolver implements MediaResourceResolverInterface
 {

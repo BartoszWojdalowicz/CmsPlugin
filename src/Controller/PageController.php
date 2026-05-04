@@ -15,14 +15,12 @@ namespace Sylius\CmsPlugin\Controller;
 
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\CmsPlugin\Entity\PageInterface;
+use Sylius\CmsPlugin\Locale\Context\LocaleContextInterface;
 use Sylius\CmsPlugin\Provider\ResourceTemplateProvider;
 use Sylius\CmsPlugin\Repository\PageRepositoryInterface;
-use Sylius\Component\Channel\Context\ChannelContextInterface;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Resource\ResourceActions;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Webmozart\Assert\Assert;
 
 final class PageController extends ResourceController
 {
@@ -45,15 +43,9 @@ final class PageController extends ResourceController
         /** @var LocaleContextInterface $localeContext */
         $localeContext = $this->get('sylius.context.locale');
 
-        /** @var ChannelContextInterface $channelContext */
-        $channelContext = $this->get('sylius.context.channel');
-
-        Assert::notNull($channelContext->getChannel()->getCode());
-
         $page = $pageRepository->findOneEnabledBySlugAndChannelCode(
             $slug,
             $localeContext->getLocaleCode(),
-            $channelContext->getChannel()->getCode(),
         );
 
         if (null === $page) {

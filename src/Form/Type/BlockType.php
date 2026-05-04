@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Form\Type;
 
-use Sylius\Bundle\LocaleBundle\Form\Type\LocaleChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\CmsPlugin\Form\Type\Translation\ContentConfigurationTranslationsType;
+use Sylius\CmsPlugin\Locale\Form\Type\LocaleChoiceType;
+use Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface;
 use Sylius\CmsPlugin\Provider\ResourceTemplateProviderInterface;
-use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

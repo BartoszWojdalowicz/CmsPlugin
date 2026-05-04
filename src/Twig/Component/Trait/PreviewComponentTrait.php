@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Twig\Component\Trait;
 
-use Sylius\Component\Locale\Provider\LocaleProviderInterface;
+use Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface;
 use Sylius\Resource\Model\ResourceInterface;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

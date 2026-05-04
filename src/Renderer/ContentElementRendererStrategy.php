@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Sylius\CmsPlugin\Renderer;
 
 use Sylius\CmsPlugin\Entity\ContentElementsAwareInterface;
+use Sylius\CmsPlugin\Locale\Context\LocaleContextInterface;
 use Sylius\CmsPlugin\Renderer\ContentElement\ContentElementRendererInterface;
 use Sylius\CmsPlugin\Twig\Parser\ContentParserInterface;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
 
 final class ContentElementRendererStrategy implements ContentElementRendererStrategyInterface
 {

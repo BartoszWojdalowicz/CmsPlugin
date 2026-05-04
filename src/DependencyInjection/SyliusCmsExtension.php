@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\DependencyInjection;
 
-use Sylius\Bundle\CoreBundle\DependencyInjection\PrependDoctrineMigrationsTrait;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -21,8 +20,6 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
 final class SyliusCmsExtension extends AbstractResourceExtension implements PrependExtensionInterface
 {
-    use PrependDoctrineMigrationsTrait;
-
     public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
@@ -30,7 +27,6 @@ final class SyliusCmsExtension extends AbstractResourceExtension implements Prep
 
         $container->setParameter('sylius_cms.templates.pages', $config['templates']['pages']);
         $container->setParameter('sylius_cms.templates.blocks', $config['templates']['blocks']);
-
         $container->setParameter('sylius_cms.wysiwyg_editor', $config['wysiwyg_editor']);
     }
 
@@ -40,6 +36,12 @@ final class SyliusCmsExtension extends AbstractResourceExtension implements Prep
         $container->setParameter('sylius_cms.fixtures_dir', __DIR__ . '/../../config/fixtures');
 
         $this->registerResources('sylius_cms', 'doctrine/orm', $config['resources'], $container);
+
+        $localeConfiguration = new LocaleConfiguration();
+        $localeConfig = $this->processConfiguration($localeConfiguration, []);
+
+        $this->registerResources('sylius', 'doctrine/orm', $localeConfig['resources'], $container);
+        $container->setParameter('sylius_locale.locale', $localeConfig['locale']);
 
         $this->prependDoctrineMigrations($container);
     }
@@ -68,5 +70,35 @@ final class SyliusCmsExtension extends AbstractResourceExtension implements Prep
         $configs = $container->getExtensionConfig($this->getAlias());
 
         return $this->processConfiguration($configuration, $configs);
+    }
+
+    private function prependDoctrineMigrations(ContainerBuilder $container): void
+    {
+        if (
+            !$container->hasExtension('doctrine_migrations') ||
+            !$container->hasExtension('sylius_labs_doctrine_migrations_extra')
+        ) {
+            return;
+        }
+
+        if (
+            $container->hasParameter('sylius_core.prepend_doctrine_migrations') &&
+            !$container->getParameter('sylius_core.prepend_doctrine_migrations')
+        ) {
+            return;
+        }
+
+        $doctrineConfig = $container->getExtensionConfig('doctrine_migrations');
+        $container->prependExtensionConfig('doctrine_migrations', [
+            'migrations_paths' => \array_merge(\array_pop($doctrineConfig)['migrations_paths'] ?? [], [
+                $this->getMigrationsNamespace() => $this->getMigrationsDirectory(),
+            ]),
+        ]);
+
+        $container->prependExtensionConfig('sylius_labs_doctrine_migrations_extra', [
+            'migrations' => [
+                $this->getMigrationsNamespace() => $this->getNamespacesOfMigrationsExecutedBefore(),
+            ],
+        ]);
     }
 }
