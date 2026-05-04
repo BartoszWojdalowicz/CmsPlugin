@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<doctrine-mapping xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
-                  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <mapped-superclass name="Sylius\CmsPlugin\Entity\Media" table="sylius_cms_media">
@@ -27,17 +27,6 @@
         <field name="height" column="height" type="integer" nullable="true"/>
 
         <many-to-many field="collections" target-entity="Sylius\CmsPlugin\Entity\CollectionInterface" mapped-by="media" />
-
-        <many-to-many field="channels" target-entity="Sylius\Component\Channel\Model\ChannelInterface">
-            <join-table name="sylius_cms_media_channels">
-                <join-columns>
-                    <join-column name="media_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="channel_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
 
         <one-to-many field="pages" target-entity="Sylius\CmsPlugin\Entity\PageTranslationInterface" mapped-by="teaserImage"/>
 
