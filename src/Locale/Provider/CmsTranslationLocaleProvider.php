@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace Sylius\CmsPlugin\Locale\Provider;
 
 use Sylius\Resource\Translation\Provider\TranslationLocaleProviderInterface;
+use Symfony\Component\DependencyInjection\Attribute\Lazy;
 
+#[Lazy]
 final class CmsTranslationLocaleProvider implements TranslationLocaleProviderInterface
 {
     public function __construct(private readonly LocaleProviderInterface $localeProvider)
