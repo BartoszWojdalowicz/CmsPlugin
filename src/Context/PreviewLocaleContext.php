@@ -22,7 +22,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 final readonly class PreviewLocaleContext implements LocaleContextInterface
 {
     public function __construct(
-//        private SectionProviderInterface $sectionProvider,
         private RequestStack $requestStack,
         private LocaleProviderInterface $localeProvider,
     ) {

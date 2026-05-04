@@ -42,7 +42,7 @@ class PageRepository extends EntityRepository implements PageRepositoryInterface
         ;
     }
 
-    public function findOneEnabledBySlugAndChannelCode(
+    public function findOneEnabledBySlug(
         string $slug,
         ?string $localeCode,
     ): ?PageInterface {

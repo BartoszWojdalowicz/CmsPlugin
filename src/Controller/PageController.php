@@ -43,7 +43,7 @@ final class PageController extends ResourceController
         /** @var LocaleContextInterface $localeContext */
         $localeContext = $this->get('sylius.context.locale');
 
-        $page = $pageRepository->findOneEnabledBySlugAndChannelCode(
+        $page = $pageRepository->findOneEnabledBySlug(
             $slug,
             $localeContext->getLocaleCode(),
         );

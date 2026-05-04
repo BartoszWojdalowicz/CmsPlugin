@@ -16,9 +16,9 @@
         "sylius/bootstrap-admin-ui": "^0.12.1",
         "sylius/ui-translations": "^0.12.1",
         "symfony/asset-mapper": "^7.4",
-        "behat/transliterator": "*",
-        "liip/imagine-bundle": "*",
-        "league/flysystem-bundle": "*"
+        "behat/transliterator": "^1.5",
+        "liip/imagine-bundle": "^2.0",
+        "league/flysystem-bundle": "^3.0"
     },
     "require-dev": {
         "behat/behat": "^3.14",
@@ -48,8 +48,8 @@
         "symfony/debug-bundle": "^7.4",
         "symfony/dotenv": "^7.4",
         "symfony/flex": "^2.4",
-        "symfony/runtime":  "^7.4",
-        "symfony/web-profiler-bundle":  "^7.4"
+        "symfony/runtime": "^7.4",
+        "symfony/web-profiler-bundle": "^7.4"
     },
     "suggest": {
         "stefandoorn/sitemap-plugin": "^2.2"
