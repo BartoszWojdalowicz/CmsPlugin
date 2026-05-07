@@ -18,8 +18,6 @@ use Symfony\Component\Intl\Locales;
 
 class Locale implements LocaleInterface, \Stringable
 {
-    use TimestampableTrait;
-
     /** @var mixed */
     protected $id;
 
@@ -28,7 +26,6 @@ class Locale implements LocaleInterface, \Stringable
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
     }
 
     public function __toString(): string

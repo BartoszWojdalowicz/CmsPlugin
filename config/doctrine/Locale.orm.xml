@@ -22,8 +22,5 @@
         </id>
 
         <field name="code" column="code" type="string" length="12" unique="true"/>
-
-        <field name="createdAt" column="created_at" type="datetime"/>
-        <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
     </entity>
 </doctrine-mapping>
