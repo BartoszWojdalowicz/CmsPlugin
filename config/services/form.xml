@@ -8,8 +8,6 @@
     <parameters>
         <parameter key="sylius_cms.content_elements.type.single_media" type="constant">Sylius\CmsPlugin\Form\Type\ContentElements\SingleMediaContentElementType::TYPE</parameter>
         <parameter key="sylius_cms.content_elements.type.multiple_media" type="constant">Sylius\CmsPlugin\Form\Type\ContentElements\MultipleMediaContentElementType::TYPE</parameter>
-        <parameter key="sylius_cms.content_elements.type.products_carousel_by_taxon" type="constant">Sylius\CmsPlugin\Form\Type\ContentElements\ProductsCarouselByTaxonContentElementType::TYPE</parameter>
-        <parameter key="sylius_cms.content_elements.type.products_grid_by_taxon" type="constant">Sylius\CmsPlugin\Form\Type\ContentElements\ProductsGridByTaxonContentElementType::TYPE</parameter>
         <parameter key="sylius_cms.content_elements.type.pages_collection" type="constant">Sylius\CmsPlugin\Form\Type\ContentElements\PagesCollectionContentElementType::TYPE</parameter>
     </parameters>
 
@@ -84,20 +82,6 @@
             <tag name="form.type" />
         </service>
 
-        <service id="sylius_cms.form.type.content_element.products_carousel_by_taxon" class="Sylius\CmsPlugin\Form\Type\ContentElements\ProductsCarouselByTaxonContentElementType">
-            <argument type="service" id="sylius.repository.taxon" />
-            <argument type="service" id="sylius_cms.form.data_transformer.content_element_checker" />
-            <tag name="sylius_cms.content_elements.type" key="%sylius_cms.content_elements.type.products_carousel_by_taxon%" />
-            <tag name="form.type" />
-        </service>
-
-        <service id="sylius_cms.form.type.content_element.products_grid_by_taxon" class="Sylius\CmsPlugin\Form\Type\ContentElements\ProductsGridByTaxonContentElementType">
-            <argument type="service" id="sylius.repository.taxon" />
-            <argument type="service" id="sylius_cms.form.data_transformer.content_element_checker" />
-            <tag name="sylius_cms.content_elements.type" key="%sylius_cms.content_elements.type.products_grid_by_taxon%" />
-            <tag name="form.type" />
-        </service>
-
         <service id="sylius_cms.form.type.content_element.pages_collection" class="Sylius\CmsPlugin\Form\Type\ContentElements\PagesCollectionContentElementType">
             <argument type="service" id="sylius_cms.repository.collection" />
             <argument type="service" id="sylius_cms.form.data_transformer.content_element_checker" />
@@ -154,7 +138,7 @@
         </service>
 
         <service id="sylius_cms.form.type.admin.content_configuration_translations" class="Sylius\CmsPlugin\Form\Type\Translation\ContentConfigurationTranslationsType">
-            <argument type="service" id="sylius.provider.translation_locale.admin" />
+            <argument type="service" id="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" />
 
             <tag name="form.type" />
         </service>

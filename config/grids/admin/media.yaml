@@ -44,13 +44,6 @@ sylius_grid:
                     path: .
                     options:
                         template: "@SyliusCmsPlugin/admin/grid/field/collections.html.twig"
-                channels:
-                    type: twig
-                    label: sylius_cms.ui.channels
-                    options:
-                        template: "@SyliusAdmin/shared/grid/field/channels.html.twig"
-                        vars:
-                            th_class: "w-1 text-center"
             filters:
                 search:
                     type: string

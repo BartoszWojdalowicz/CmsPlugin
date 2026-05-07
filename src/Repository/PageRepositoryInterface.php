@@ -26,13 +26,12 @@ interface PageRepositoryInterface extends RepositoryInterface
 
     public function findOneEnabledByCode(string $code): ?PageInterface;
 
-    public function findOneEnabledBySlugAndChannelCode(
+    public function findOneEnabledBySlug(
         string $slug,
         ?string $localeCode,
-        string $channelCode,
     ): ?PageInterface;
 
-    public function createShopListQueryBuilder(string $collectionCode, string $channelCode): QueryBuilder;
+    public function createShopListQueryBuilder(string $collectionCode): QueryBuilder;
 
     /** @return array<ResourceInterface> */
     public function findByCollectionCode(string $collectionCode): array;

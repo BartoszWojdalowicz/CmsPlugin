@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Form\Type;
 
-use Sylius\Bundle\ChannelBundle\Form\Type\ChannelChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Sylius\CmsPlugin\Form\Type\Translation\MediaTranslationType;
@@ -65,12 +64,6 @@ final class MediaType extends AbstractResourceType
             ->add('saveWithOriginalName', CheckboxType::class, [
                 'required' => false,
                 'label' => 'sylius_cms.ui.save_with_original_name',
-            ])
-            ->add('channels', ChannelChoiceType::class, [
-                'label' => 'sylius_cms.ui.channels',
-                'required' => false,
-                'multiple' => true,
-                'expanded' => true,
             ])
             ->add('path', TextType::class, [
                 'label' => 'sylius_cms.ui.path',

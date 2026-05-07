@@ -42,9 +42,6 @@ sylius_twig_hooks:
             enabled:
                 template: '@SyliusCmsPlugin/admin/media/form/sections/general/enabled.html.twig'
                 priority: 100
-            channels:
-                template: '@SyliusCmsPlugin/admin/media/form/sections/general/channels.html.twig'
-                priority: 0
 
         'sylius_cms.admin.media.update.content.form.sections.media':
             type:

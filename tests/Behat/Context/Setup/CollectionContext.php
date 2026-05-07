@@ -16,8 +16,8 @@ namespace Tests\Sylius\CmsPlugin\Behat\Context\Setup;
 use Behat\Behat\Context\Context;
 use Sylius\Behat\Service\SharedStorageInterface;
 use Sylius\CmsPlugin\Entity\CollectionInterface;
+use Sylius\CmsPlugin\Formatter\StringInflector;
 use Sylius\CmsPlugin\Repository\CollectionRepositoryInterface;
-use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Tests\Sylius\CmsPlugin\Behat\Service\RandomStringGeneratorInterface;
 

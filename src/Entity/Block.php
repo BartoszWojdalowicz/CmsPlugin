@@ -13,34 +13,22 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Entity;
 
-use Sylius\CmsPlugin\Entity\Trait\ChannelsAwareTrait;
 use Sylius\CmsPlugin\Entity\Trait\CollectibleTrait;
 use Sylius\CmsPlugin\Entity\Trait\ContentElementsAwareTrait;
-use Sylius\CmsPlugin\Entity\Trait\ProductsAwareTrait;
-use Sylius\CmsPlugin\Entity\Trait\ProductsInTaxonsAwareTrait;
 use Sylius\CmsPlugin\Entity\Trait\StaticTemplateAwareTrait;
-use Sylius\CmsPlugin\Entity\Trait\TaxonAwareTrait;
 use Sylius\Component\Resource\Model\ToggleableTrait;
 
 class Block implements BlockInterface
 {
     use ToggleableTrait;
     use CollectibleTrait;
-    use ChannelsAwareTrait;
     use StaticTemplateAwareTrait;
     use ContentElementsAwareTrait;
-    use ProductsAwareTrait;
-    use TaxonAwareTrait;
-    use ProductsInTaxonsAwareTrait;
 
     public function __construct()
     {
         $this->initializeCollectionsCollection();
-        $this->initializeChannelsCollection();
         $this->initializeContentElementsCollection();
-        $this->initializeProductsCollection();
-        $this->initializeTaxonCollection();
-        $this->initializeProductsInTaxonsCollection();
     }
 
     protected ?int $id = null;

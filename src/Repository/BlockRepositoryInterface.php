@@ -20,13 +20,10 @@ use Sylius\Resource\Model\ResourceInterface;
 /** @extends RepositoryInterface<BlockInterface> */
 interface BlockRepositoryInterface extends RepositoryInterface
 {
-    public function findEnabledByCode(string $code, string $channelCode): ?BlockInterface;
+    public function findEnabledByCode(string $code): ?BlockInterface;
 
     /** @return array<ResourceInterface> */
-    public function findByCollectionCode(
-        string $collectionCode,
-        string $channelCode,
-    ): array;
+    public function findByCollectionCode(string $collectionCode): array;
 
     /** @return array<ResourceInterface> */
     public function findByNamePart(string $phrase): array;

@@ -13,16 +13,16 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Twig\Component\Page;
 
-use Sylius\Bundle\UiBundle\Twig\Component\LiveCollectionTrait;
-use Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponentTrait;
-use Sylius\Bundle\UiBundle\Twig\Component\TemplatePropTrait;
+use Behat\Transliterator\Transliterator;
 use Sylius\CmsPlugin\Entity\PageInterface;
 use Sylius\CmsPlugin\Entity\TemplateInterface;
+use Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface;
 use Sylius\CmsPlugin\Repository\TemplateRepositoryInterface;
 use Sylius\CmsPlugin\Twig\Component\Trait\ContentElementsCollectionFormComponentTrait;
+use Sylius\CmsPlugin\Twig\Component\Trait\LiveCollectionTrait;
 use Sylius\CmsPlugin\Twig\Component\Trait\PreviewComponentTrait;
-use Sylius\Component\Locale\Provider\LocaleProviderInterface;
-use Sylius\Component\Product\Generator\SlugGeneratorInterface;
+use Sylius\CmsPlugin\Twig\Component\Trait\ResourceFormComponentTrait;
+use Sylius\CmsPlugin\Twig\Component\Trait\TemplatePropTrait;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 use Sylius\Resource\Model\TranslatableInterface;
 use Symfony\Component\Form\AbstractType;
@@ -59,7 +59,6 @@ class FormComponent
         Environment $twig,
         LocaleProviderInterface $localeProvider,
         string $previewTemplate,
-        protected readonly SlugGeneratorInterface $slugGenerator,
     ) {
         $this->initialize($pageRepository, $formFactory, $resourceClass, $formClass);
         $this->initializeTemplateRepository($templateRepository);
@@ -69,9 +68,10 @@ class FormComponent
     #[LiveAction]
     public function generateSlug(#[LiveArg] string $localeCode): void
     {
-        $this->formValues['translations'][$localeCode]['slug'] = $this->slugGenerator->generate(
-            $this->formValues['name'],
-        );
+        $slug = str_replace('\'', '-', $this->formValues['name']);
+        $slug = Transliterator::transliterate($slug);
+
+        $this->formValues['translations'][$localeCode]['slug'] = $slug;
     }
 
     protected function beforePreviewDispatch(): void

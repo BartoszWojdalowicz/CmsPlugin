@@ -4,3 +4,4 @@ imports:
     - { resource: "@SyliusCmsPlugin/config/grids/admin/collection.yaml" }
     - { resource: "@SyliusCmsPlugin/config/grids/admin/media.yaml" }
     - { resource: "@SyliusCmsPlugin/config/grids/admin/template.yaml" }
+    - { resource: "@SyliusCmsPlugin/config/grids/admin/locale.yaml" }

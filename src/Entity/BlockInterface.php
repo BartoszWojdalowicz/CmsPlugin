@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Entity;
 
-use Sylius\Component\Channel\Model\ChannelsAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\ToggleableInterface;
 use Sylius\Resource\Model\CodeAwareInterface;
@@ -23,14 +22,8 @@ interface BlockInterface extends
     CodeAwareInterface,
     ToggleableInterface,
     CollectibleInterface,
-    ChannelsAwareInterface,
     StaticTemplateAwareInterface,
-    ContentElementsAwareInterface,
-    ProductsAwareInterface,
-    TaxonAwareInterface,
-    ProductsInTaxonsAwareInterface,
-    BlockTaxonAwareInterface,
-    BlockProductAwareInterface
+    ContentElementsAwareInterface
 {
     public function getName(): ?string;
 

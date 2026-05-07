@@ -13,15 +13,14 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Form\Type;
 
-use Sylius\Bundle\ChannelBundle\Form\Type\ChannelChoiceType;
-use Sylius\Bundle\LocaleBundle\Form\Type\LocaleChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Sylius\CmsPlugin\Form\Type\Translation\ContentConfigurationTranslationsType;
 use Sylius\CmsPlugin\Form\Type\Translation\PageTranslationType;
+use Sylius\CmsPlugin\Locale\Form\Type\LocaleChoiceType;
+use Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface;
 use Sylius\CmsPlugin\Provider\ResourceTemplateProviderInterface;
-use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -61,12 +60,6 @@ final class PageType extends AbstractResourceType
                 'label' => 'sylius_cms.ui.collections',
                 'multiple' => true,
                 'by_reference' => false,
-            ])
-            ->add('channels', ChannelChoiceType::class, [
-                'label' => 'sylius_cms.ui.channels',
-                'required' => false,
-                'multiple' => true,
-                'expanded' => true,
             ])
             ->add('publishAt', DateTimeType::class, [
                 'input' => 'datetime_immutable',

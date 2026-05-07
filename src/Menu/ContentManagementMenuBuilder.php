@@ -13,17 +13,32 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Menu;
 
-use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
+use Knp\Menu\ItemInterface;
+use Sylius\AdminUi\Knp\Menu\MenuBuilderInterface;
 
-final class ContentManagementMenuBuilder
+final readonly class ContentManagementMenuBuilder implements MenuBuilderInterface
 {
-    public function __construct(private MenuReorderInterface $menuReorder)
-    {
+    public function __construct(
+        private MenuBuilderInterface $menuBuilder,
+    ) {
     }
 
-    public function buildMenu(MenuBuilderEvent $menuBuilderEvent): void
+    public function createMenu(array $options): ItemInterface
     {
-        $menu = $menuBuilderEvent->getMenu();
+        $menu = $this->menuBuilder->createMenu($options);
+
+        $configurationMenu = $menu
+            ->addChild('sylius_configuration')
+            ->setLabel('sylius_cms.ui.configuration')
+            ->setLabelAttribute('icon', 'tabler:home-edit')
+        ;
+        $configurationMenu
+            ->addChild('locales', ['route' => 'sylius_admin_locale_index', 'extras' => ['routes' => [
+                ['route' => 'sylius_admin_locale_create'],
+                ['route' => 'sylius_admin_locale_update'],
+            ]]])
+            ->setLabel('sylius.menu.locales')
+            ->setLabelAttribute('icon', 'tabler:bubble-text');
 
         $cmsRootMenuItem = $menu
             ->addChild('sylius_cms')
@@ -86,6 +101,6 @@ final class ContentManagementMenuBuilder
             ->setLabel('sylius_cms.ui.media')
         ;
 
-        $this->menuReorder->reorder($menu, 'sylius_cms', 'marketing');
+        return $menu;
     }
 }

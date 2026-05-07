@@ -111,3 +111,17 @@ sylius_cms:
             missing_template:
                 title: Missing template
                 content: The template you are trying to use for preview is missing. Showing default template.
+        configuration: Configuration
+sylius:
+    ui:
+        default: default
+        content: Content
+        code: Code
+        locales: Locales
+        locale: Locale
+        name: Name
+    menu:
+        locales: Locales
+    form:
+        locale:
+            name: Name

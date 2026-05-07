@@ -10,26 +10,28 @@
 
         <service
             id="sylius_cms.twig.component.template.form"
-            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+            class="Sylius\CmsPlugin\Twig\Component\ResourceFormComponent"
         >
             <argument type="service" id="sylius_cms.repository.template" />
             <argument type="service" id="form.factory" />
             <argument>%sylius_cms.model.template.class%</argument>
             <argument>Sylius\CmsPlugin\Form\Type\TemplateType</argument>
 
-            <tag name="sylius.live_component.admin" key="sylius_cms:admin:template:form" />
+            <tag name="twig.component" key="sylius_cms:admin:template:form" template="@SyliusCmsPlugin/components/default.html.twig" expose_public_props="true" live="true" csrf="true" route="ux_live_component" method="post" url_reference_type="0" />
+            <tag name="controller.service_arguments" />
         </service>
 
         <service
             id="sylius_cms.twig.component.collection.form"
-            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+            class="Sylius\CmsPlugin\Twig\Component\ResourceFormComponent"
         >
             <argument type="service" id="sylius_cms.repository.collection" />
             <argument type="service" id="form.factory" />
             <argument>%sylius_cms.model.collection.class%</argument>
             <argument>Sylius\CmsPlugin\Form\Type\CollectionType</argument>
 
-            <tag name="sylius.live_component.admin" key="sylius_cms:admin:collection:form" />
+            <tag name="twig.component" key="sylius_cms:admin:collection:form" template="@SyliusCmsPlugin/components/default.html.twig" expose_public_props="true" live="true" csrf="true" route="ux_live_component" method="post" url_reference_type="0" />
+            <tag name="controller.service_arguments" />
         </service>
 
         <service
@@ -50,26 +52,28 @@
                 <argument type="service" id="ux.live_component.live_responder"/>
             </call>
 
-            <tag name="sylius.live_component.admin" key="sylius_cms:admin:block:form" />
+            <tag name="twig.component" key="sylius_cms:admin:block:form" template="@SyliusCmsPlugin/components/default.html.twig" expose_public_props="true" live="true" csrf="true" route="ux_live_component" method="post" url_reference_type="0" />
+            <tag name="controller.service_arguments" />
         </service>
 
         <service
             id="sylius_cms.twig.component.media.form"
-            class="Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent"
+            class="Sylius\CmsPlugin\Twig\Component\ResourceFormComponent"
         >
             <argument type="service" id="sylius_cms.repository.media" />
             <argument type="service" id="form.factory" />
             <argument>%sylius_cms.model.media.class%</argument>
             <argument>Sylius\CmsPlugin\Form\Type\MediaType</argument>
 
-            <tag name="sylius.live_component.admin" key="sylius_cms:admin:media:form" />
+            <tag name="twig.component" key="sylius_cms:admin:media:form" template="@SyliusCmsPlugin/components/default.html.twig" expose_public_props="true" live="true" csrf="true" route="ux_live_component" method="post" url_reference_type="0" />
+            <tag name="controller.service_arguments" />
         </service>
 
         <service
             id="sylius_cms.twig.component.media.preview"
             class="Sylius\CmsPlugin\Twig\Component\MediaPreviewComponent"
         >
-            <tag name="sylius.twig_component" key="sylius_cms:admin:media:preview" />
+            <tag name="twig.component" key="sylius_cms:admin:media:preview" template="@SyliusCmsPlugin/components/default.html.twig" expose_public_props="true" />
         </service>
 
         <service
@@ -90,7 +94,8 @@
                 <argument type="service" id="ux.live_component.live_responder"/>
             </call>
 
-            <tag name="sylius.live_component.admin" key="sylius_cms:admin:page:form" />
+            <tag name="twig.component" key="sylius_cms:admin:page:form" template="@SyliusCmsPlugin/components/default.html.twig" expose_public_props="true" live="true" csrf="true" route="ux_live_component" method="post" url_reference_type="0" />
+            <tag name="controller.service_arguments" />
         </service>
     </services>
 </container>

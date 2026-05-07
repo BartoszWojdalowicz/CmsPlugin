@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container
+    xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+
+    <parameters>
+        <parameter key="sylius.form.type.locale.validation_groups" type="collection">
+            <parameter>sylius</parameter>
+        </parameter>
+    </parameters>
+
+    <services>
+        <defaults public="true" />
+
+        <service id="sylius.provider.locale_collection" class="Sylius\CmsPlugin\Locale\Provider\LocaleCollectionProvider">
+            <argument type="service" id="sylius.repository.locale" />
+        </service>
+
+        <service id="sylius.provider.locale" class="Sylius\CmsPlugin\Locale\Provider\LocaleProvider">
+            <argument type="service" id="sylius.provider.locale_collection" />
+            <argument>%sylius_locale.locale%</argument>
+        </service>
+        <service id="Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface" alias="sylius.provider.locale" />
+
+        <service id="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" class="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" public="true">
+            <argument type="service" id="Sylius\CmsPlugin\Locale\Provider\LocaleProviderInterface" />
+        </service>
+        <service id="Sylius\Resource\Translation\Provider\TranslationLocaleProviderInterface" alias="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" public="true"/>
+        <service id="sylius.translation_locale_provider" alias="Sylius\CmsPlugin\Locale\Provider\CmsTranslationLocaleProvider" public="true" />
+
+        <service id="sylius.context.locale" class="Sylius\CmsPlugin\Locale\Context\ImmutableLocaleContext" public="true">
+            <argument>%sylius_locale.locale%</argument>
+        </service>
+        <service id="Sylius\CmsPlugin\Locale\Context\LocaleContextInterface" alias="sylius.context.locale" />
+
+        <service id="sylius.form.type.locale_choice" class="Sylius\CmsPlugin\Locale\Form\Type\LocaleChoiceType">
+            <argument type="service" id="sylius.repository.locale" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="sylius.twig.extension.locale" class="Sylius\CmsPlugin\Locale\Twig\LocaleExtension">
+            <tag name="twig.extension" />
+        </service>
+
+        <service id="Sylius\CmsPlugin\Locale\Twig\LocaleRuntime">
+            <argument type="service" id="sylius.context.locale" />
+            <tag name="twig.runtime" />
+        </service>
+
+        <service id="sylius.form.type.locale" class="Sylius\CmsPlugin\Locale\Form\Type\LocaleType">
+            <argument>%sylius.model.locale.class%</argument>
+            <argument>%sylius.form.type.locale.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+    </services>
+</container>
