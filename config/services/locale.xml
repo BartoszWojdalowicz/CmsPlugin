@@ -42,13 +42,13 @@
         </service>
 
         <service id="sylius.twig.extension.locale" class="Sylius\CmsPlugin\Locale\Twig\LocaleExtension">
-            <argument type="service" id="sylius.converter.locale" />
-            <argument type="service" id="sylius.context.locale" />
             <tag name="twig.extension" />
         </service>
 
-        <service id="sylius.converter.locale" class="Sylius\CmsPlugin\Locale\Converter\LocaleConverter" />
-        <service id="Sylius\CmsPlugin\Locale\Converter\LocaleConverterInterface" alias="sylius.converter.locale" />
+        <service id="Sylius\CmsPlugin\Locale\Twig\LocaleRuntime">
+            <argument type="service" id="sylius.context.locale" />
+            <tag name="twig.runtime" />
+        </service>
 
         <service id="sylius.form.type.locale" class="Sylius\CmsPlugin\Locale\Form\Type\LocaleType">
             <argument>%sylius.model.locale.class%</argument>
