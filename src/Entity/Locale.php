@@ -13,10 +13,13 @@ declare(strict_types=1);
 
 namespace Sylius\CmsPlugin\Entity;
 
+use Sylius\Resource\Model\ToggleableTrait;
 use Symfony\Component\Intl\Locales;
 
 class Locale implements LocaleInterface, \Stringable
 {
+    use ToggleableTrait;
+
     /** @var mixed */
     protected $id;
 
@@ -60,15 +63,5 @@ class Locale implements LocaleInterface, \Stringable
         }
 
         return Locales::getName($this->getCode(), $locale);
-    }
-
-    public function isEnabled(): bool
-    {
-        return $this->enabled;
-    }
-
-    public function setEnabled(bool $enabled): void
-    {
-        $this->enabled = $enabled;
     }
 }

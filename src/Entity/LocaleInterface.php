@@ -15,12 +15,9 @@ namespace Sylius\CmsPlugin\Entity;
 
 use Sylius\Resource\Model\CodeAwareInterface;
 use Sylius\Resource\Model\ResourceInterface;
+use Sylius\Resource\Model\ToggleableInterface;
 
-interface LocaleInterface extends ResourceInterface, CodeAwareInterface
+interface LocaleInterface extends ResourceInterface, CodeAwareInterface, ToggleableInterface
 {
     public function getName(?string $locale = null): ?string;
-
-    public function isEnabled(): bool;
-
-    public function setEnabled(bool $enabled): void;
 }
