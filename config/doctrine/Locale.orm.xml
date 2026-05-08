@@ -22,5 +22,6 @@
         </id>
 
         <field name="code" column="code" type="string" length="12" unique="true"/>
+        <field name="enabled" column="enabled" type="boolean"/>
     </entity>
 </doctrine-mapping>

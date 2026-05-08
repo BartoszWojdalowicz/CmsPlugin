@@ -20,10 +20,19 @@ sylius_grid:
                     sortable: ~
                     options:
                         template: "@SyliusAdmin/shared/grid/field/code.html.twig"
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    sortable: ~
+                    options:
+                        template: "@SyliusAdmin/shared/grid/field/enabled.html.twig"
             filters:
                 code:
                     type: string
                     label: sylius.ui.code
+                enabled:
+                    type: boolean
+                    label: sylius.ui.enabled
             actions:
                 main:
                     create:

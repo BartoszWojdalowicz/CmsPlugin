@@ -15,9 +15,12 @@ namespace Sylius\CmsPlugin\Entity;
 
 use Sylius\Resource\Model\CodeAwareInterface;
 use Sylius\Resource\Model\ResourceInterface;
-use Sylius\Resource\Model\TimestampableInterface;
 
 interface LocaleInterface extends ResourceInterface, CodeAwareInterface
 {
     public function getName(?string $locale = null): ?string;
+
+    public function isEnabled(): bool;
+
+    public function setEnabled(bool $enabled): void;
 }
