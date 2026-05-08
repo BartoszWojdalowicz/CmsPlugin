@@ -26,8 +26,6 @@ class Locale implements LocaleInterface, \Stringable
     /** @var string|null */
     protected $code;
 
-    protected bool $enabled = true;
-
     public function __construct()
     {
     }
