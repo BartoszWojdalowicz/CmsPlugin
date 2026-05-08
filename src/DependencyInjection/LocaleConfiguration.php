@@ -33,7 +33,7 @@ final class LocaleConfiguration implements ConfigurationInterface
         $localeRootNode
             ->children()
             ->scalarNode('driver')->defaultValue(SyliusResourceBundle::DRIVER_DOCTRINE_ORM)->end()
-            ->scalarNode('locale')->defaultValue('en')->cannotBeEmpty()->end()
+            ->scalarNode('locale')->defaultValue('en_US')->cannotBeEmpty()->end()
             ->end()
         ;
 

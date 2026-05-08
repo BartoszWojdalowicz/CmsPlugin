@@ -28,7 +28,7 @@ final class LocaleRuntime implements RuntimeExtensionInterface
     public function convertCodeToName(string $code, ?string $localeCode = null): string
     {
         try {
-            return Locales::getName($code, $this->getLocaleCode($localeCode) ?? 'en');
+            return Locales::getName($code, $this->getLocaleCode($localeCode) ?? 'en_US');
         } catch (\InvalidArgumentException|MissingResourceException) {
             return $code;
         }
