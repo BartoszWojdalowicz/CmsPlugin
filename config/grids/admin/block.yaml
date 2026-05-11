@@ -13,19 +13,18 @@ sylius_grid:
                     type: twig
                     label: sylius_cms.ui.name
                     sortable: name
+                    path: .
                     options:
-                        template: "@SyliusAdmin/shared/grid/field/name.html.twig"
+                        template: "@SyliusCmsPlugin/admin/grid/field/name.html.twig"
                 code:
-                    type: twig
+                    type: string
                     label: sylius_cms.ui.code
                     sortable: ~
-                    options:
-                        template: "@SyliusAdmin/shared/grid/field/code.html.twig"
                 enabled:
                     type: twig
                     label: sylius.ui.enabled
                     options:
-                        template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
+                        template: "@SyliusBootstrapAdminUi/shared/grid/field/boolean.html.twig"
                         vars:
                             th_class: "w-1 text-center"
                             td_class: "text-center"
