@@ -13,8 +13,9 @@ sylius_grid:
                     type: twig
                     label: sylius_cms.ui.name
                     sortable: name
+                    path: .
                     options:
-                        template: "@SyliusAdmin/shared/grid/field/name.html.twig"
+                        template: "@SyliusCmsPlugin/admin/grid/field/name.html.twig"
                 type:
                     type: string
                     label: sylius.ui.type

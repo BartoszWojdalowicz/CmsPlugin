@@ -24,7 +24,7 @@ sylius_grid:
                     type: twig
                     label: sylius.ui.enabled
                     options:
-                        template: "@SyliusUi/grid/field/enabled.html.twig"
+                        template: "@SyliusBootstrapAdminUi/shared/grid/field/boolean.html.twig"
                 collections:
                     type: twig
                     label: sylius_cms.ui.collections

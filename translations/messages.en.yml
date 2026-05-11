@@ -125,3 +125,4 @@ sylius:
     form:
         locale:
             name: Name
+            enabled: Enabled

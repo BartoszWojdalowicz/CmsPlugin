@@ -27,7 +27,7 @@ final class LocaleCollectionProvider implements LocaleCollectionProviderInterfac
     {
         $locales = [];
 
-        foreach ($this->localeRepository->findAll() as $locale) {
+        foreach ($this->localeRepository->findBy(['enabled' => true]) as $locale) {
             $locales[$locale->getCode()] = $locale;
         }
 

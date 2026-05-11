@@ -10,24 +10,29 @@ sylius_grid:
             fields:
                 name:
                     type: twig
-                    label: sylius.ui.name
+                    label: sylius_cms.ui.name
+                    sortable: name
                     path: .
                     options:
-                        template: "@SyliusAdmin/shared/grid/field/name.html.twig"
+                        template: "@SyliusCmsPlugin/admin/grid/field/name.html.twig"
                 code:
-                    type: twig
+                    type: string
                     label: sylius.ui.code
                     sortable: ~
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    sortable: ~
                     options:
-                        template: "@SyliusAdmin/shared/grid/field/code.html.twig"
+                        template: "@SyliusBootstrapAdminUi/shared/grid/field/boolean.html.twig"
             filters:
                 code:
                     type: string
                     label: sylius.ui.code
+                enabled:
+                    type: boolean
+                    label: sylius.ui.enabled
             actions:
                 main:
                     create:
                         type: create
-                item:
-                    delete:
-                        type: delete
