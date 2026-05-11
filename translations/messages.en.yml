@@ -120,6 +120,8 @@ sylius:
         locales: Locales
         locale: Locale
         name: Name
+        enabled: Enabled
+        translations: Translations
     menu:
         locales: Locales
     form:
