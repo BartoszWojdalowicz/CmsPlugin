@@ -14,9 +14,6 @@ sylius_twig_hooks:
                 priority: 0
 
         'sylius_cms.shop.page.show.content':
-            breadcrumbs:
-                template: '@SyliusCmsPlugin/shop/page/show/content/breadcrumbs.html.twig'
-                priority: 200
             body:
                 template: '@SyliusCmsPlugin/shop/page/show/content/body.html.twig'
                 priority: 100
