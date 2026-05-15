@@ -43,7 +43,12 @@ final class UploadEditorImageActionTest extends TestCase
         $this->mediaProviderResolverMock = $this->createMock(MediaProviderResolverInterface::class);
         $this->mediaRepositoryMock = $this->createMock(MediaRepositoryInterface::class);
         $this->mediaFactoryMock = $this->createMock(FactoryInterface::class);
-        $this->uploadEditorImageAction = new UploadEditorImageAction($this->mediaProviderResolverMock, $this->mediaRepositoryMock, $this->mediaFactoryMock);
+        $this->uploadEditorImageAction = new UploadEditorImageAction(
+            $this->mediaProviderResolverMock,
+            $this->mediaRepositoryMock,
+            $this->mediaFactoryMock,
+            5_242_880,
+        );
     }
 
     public function testUploadsMedia(): void

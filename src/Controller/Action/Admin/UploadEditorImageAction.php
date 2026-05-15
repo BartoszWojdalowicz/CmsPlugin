@@ -26,10 +26,13 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 final class UploadEditorImageAction
 {
+    private const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
     public function __construct(
         private MediaProviderResolverInterface $mediaProviderResolver,
         private MediaRepositoryInterface $mediaRepository,
         private FactoryInterface $mediaFactory,
+        private int $maxFileSizeBytes,
     ) {
     }
 
@@ -53,7 +56,11 @@ final class UploadEditorImageAction
 
     private function isValidImage(UploadedFile $image): bool
     {
-        return in_array($image->getMimeType(), ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'], true);
+        if (!in_array($image->getMimeType(), self::ALLOWED_MIME_TYPES, true)) {
+            return false;
+        }
+
+        return $image->getSize() <= $this->maxFileSizeBytes;
     }
 
     private function createMedia(UploadedFile $image): MediaInterface
