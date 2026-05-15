@@ -46,6 +46,7 @@ sylius_twig_extra:
 twig:
     form_themes:
         - '@SyliusCmsPlugin/admin/shared/editor/trix.html.twig'
+        - '@SyliusCmsPlugin/admin/shared/editor/jodit.html.twig'
 
 liip_imagine:
     filter_sets:

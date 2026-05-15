@@ -1,0 +1,7 @@
+{% block sylius_cms_plugin_jodit_strategy_widget %}
+    <div {{ sylius_test_html_attribute('editor') }}>
+        <textarea id="{{ id }}" name="{{ full_name }}"
+                  data-controller="jodit-editor"
+                  data-jodit-editor-upload-url-value="{{ path('sylius_cms_admin_upload_editor_image') }}">{{ value }}</textarea>
+    </div>
+{% endblock %}
