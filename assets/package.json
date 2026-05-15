@@ -1,0 +1,28 @@
+{
+    "name": "@sylius/cms-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "Sylius Sp. z o.o.",
+    "symfony": {
+        "controllers": {
+            "jodit-editor": {
+                "main": "admin/controllers/JoditEditorController.js",
+                "fetch": "lazy",
+                "enabled": true,
+                "name": "jodit-editor"
+            },
+            "trix-editor": {
+                "main": "admin/controllers/TrixEditorController.js",
+                "fetch": "lazy",
+                "enabled": true,
+                "name": "trix-editor"
+            },
+            "preview": {
+                "main": "admin/controllers/PreviewController.js",
+                "fetch": "lazy",
+                "enabled": true,
+                "name": "sylius-cms-plugin--admin--preview"
+            }
+        }
+    }
+}

@@ -31,20 +31,24 @@ export default class extends Controller {
             sourceEditor: 'ace',
             sourceEditorCDNUrlsJS: [],
             imageProcessor: { replaceDataURIToBlobIdInView: false },
-            buttons: [
-                'bold', 'italic', 'underline', 'strikethrough', '|',
-                'brush', 'font', 'fontsize', '|',
-                'align', '|',
-                'ul', 'ol', '|',
-                'paragraph', '|',
-                'link', 'image', '|',
-                'source',
-            ],
+            buttons: this.buildButtons(),
             uploader: this.buildUploaderConfig(),
             events: {
                 afterInsertImage: (image) => this.normalizeInsertedImage(image),
             },
         };
+    }
+
+    buildButtons() {
+        return [
+            'bold', 'italic', 'underline', 'strikethrough', '|',
+            'brush', 'font', 'fontsize', '|',
+            'align', '|',
+            'ul', 'ol', '|',
+            'paragraph', '|',
+            'link', 'image', '|',
+            'source',
+        ];
     }
 
     buildUploaderConfig() {
