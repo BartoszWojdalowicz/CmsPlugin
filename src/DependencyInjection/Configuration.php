@@ -67,6 +67,7 @@ final class Configuration implements ConfigurationInterface
 
         $this->addResourcesSection($rootNode);
         $this->addTemplatesSection($rootNode);
+        $this->addEditorImageSection($rootNode);
 
         return $treeBuilder;
     }
@@ -223,6 +224,23 @@ final class Configuration implements ConfigurationInterface
                         ->end()
                         ->arrayNode('blocks')
                             ->scalarPrototype()->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+    }
+
+    private function addEditorImageSection(ArrayNodeDefinition $node): void
+    {
+        $node
+            ->children()
+                ->arrayNode('editor_image')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->integerNode('max_file_size')
+                            ->defaultValue(5_242_880)
+                            ->min(1)
                         ->end()
                     ->end()
                 ->end()

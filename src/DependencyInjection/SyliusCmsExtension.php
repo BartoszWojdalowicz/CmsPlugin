@@ -28,6 +28,7 @@ final class SyliusCmsExtension extends AbstractResourceExtension implements Prep
         $container->setParameter('sylius_cms.templates.pages', $config['templates']['pages']);
         $container->setParameter('sylius_cms.templates.blocks', $config['templates']['blocks']);
         $container->setParameter('sylius_cms.wysiwyg_editor', $config['wysiwyg_editor']);
+        $container->setParameter('sylius_cms.editor_image.max_file_size', $config['editor_image']['max_file_size']);
     }
 
     public function prepend(ContainerBuilder $container): void

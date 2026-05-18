@@ -107,6 +107,10 @@
             <tag name="sylius_cms.wysiwyg_strategy" strategy="trix" />
         </service>
 
+        <service id="sylius_cms.form.wysiwyg_strategy.jodit" class="Sylius\CmsPlugin\Form\Strategy\Wysiwyg\JoditStrategy">
+            <tag name="sylius_cms.wysiwyg_strategy" strategy="jodit" />
+        </service>
+
         <service id="sylius_cms.form.type.page_autocomplete" class="Sylius\CmsPlugin\Form\Type\PageAutocompleteType">
             <argument>%sylius_cms.model.page.class%</argument>
             <tag name="form.type" />

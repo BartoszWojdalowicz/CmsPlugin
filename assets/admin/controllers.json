@@ -6,6 +6,18 @@
                 "webpackMode": "lazy",
                 "fetch": "lazy",
                 "enabled": true
+            },
+            "trix-editor": {
+                "main": "controllers/TrixEditorController.js",
+                "webpackMode": "lazy",
+                "fetch": "lazy",
+                "enabled": true
+            },
+            "jodit-editor": {
+                "main": "controllers/JoditEditorController.js",
+                "webpackMode": "lazy",
+                "fetch": "lazy",
+                "enabled": true
             }
         }
     },

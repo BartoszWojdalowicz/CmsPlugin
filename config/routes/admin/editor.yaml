@@ -1,0 +1,5 @@
+sylius_cms_admin_upload_editor_image:
+    path: /editor/upload-image
+    methods: [POST]
+    defaults:
+        _controller: sylius_cms.controller.action.admin.upload_editor_image
